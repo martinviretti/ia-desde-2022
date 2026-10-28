@@ -334,8 +334,16 @@
 
   /* ---------- Escena 6: capas que se apilan ---------- */
   gsap.fromTo(".layer", { y: 70, autoAlpha: 0 }, {
-    y: 0, autoAlpha: 1, stagger: { each: 0.15, from: "end" }, ease: "power2.out",
-    scrollTrigger: { trigger: "#stack", start: "top 80%", end: "bottom 65%", scrub: 0.6 }
+    y: 0, autoAlpha: 1, stagger: { each: 0.15 }, ease: "power2.out",
+    scrollTrigger: { trigger: "#stack", start: "top 85%", end: "bottom 80%", scrub: 0.6 }
+  });
+
+  /* ---------- Logos: los chips aparecen con resorte, uno tras otro ---------- */
+  $$(".lg-block").forEach(function (block) {
+    gsap.fromTo($$(".lg-chip", block), { autoAlpha: 0, y: 24, scale: 0.8, filter: "blur(6px)" }, {
+      autoAlpha: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.65, ease: "back.out(1.7)", stagger: 0.07,
+      scrollTrigger: { trigger: block, start: "top 90%", toggleActions: "play none none none" }
+    });
   });
 
   /* ---------- Escena 9: números y línea regulatoria ---------- */

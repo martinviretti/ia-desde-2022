@@ -5,7 +5,7 @@ Una guía interactiva para quien se desconectó en 2022 y quiere entender la int
 Sitio estático (HTML, CSS y JavaScript, con GSAP para las animaciones). Se abre con `index.html`; no necesita build.
 
 - `index.html`, `styles.css`, `app.js`: la página.
-- `img/`: fotos con licencia libre de Wikimedia Commons. Los créditos están en `img/credits.json` y al pie de la página.
+- `img/`: fotos con licencia libre de Wikimedia Commons (créditos en `img/credits.json` y al pie de la página) y `img/logos/` con los logos de empresas, tomados de [LobeHub Icons](https://github.com/lobehub/lobe-icons) (MIT) y [Simple Icons](https://simpleicons.org) (CC0). Las marcas pertenecen a sus dueños y se usan solo para identificarlas.
 - `video/`: los tres videos explicativos (MP4).
 - `videos/`: los proyectos de [HyperFrames](https://hyperframes.heygen.com) con los que se hicieron los videos (historia, spec y revisión de cada uno).
 - `_v1/`: versiones anteriores de la página.

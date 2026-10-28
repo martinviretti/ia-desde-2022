@@ -1,0 +1,68 @@
+<template>
+  <style>
+    @font-face { font-family: "Geist"; src: url("assets/fonts/Geist-400.woff2") format("woff2"); font-weight: 100 900; font-display: block; }
+    @font-face { font-family: "Geist Mono"; src: url("assets/fonts/GeistMono-500.woff2") format("woff2"); font-weight: 100 900; font-display: block; }
+    #root { position: absolute; inset: 0; background: #0e0e10; font-family: "Geist", sans-serif; color: #ededee; overflow: hidden; }
+    #i-stage { position: absolute; inset: 0; }
+    .i-acc { color: #ff7a45; }
+    #i-q { position: absolute; left: 140px; top: 112px; font-size: 44px; font-weight: 500; color: #a0a0aa; }
+    #i-ans { position: absolute; left: 140px; top: 196px; font-size: 88px; font-weight: 700; letter-spacing: -0.035em; line-height: 1.08; white-space: nowrap; }
+    #i-ans span, #i-end span, #i-nope span { display: inline-block; }
+    #i-strike { position: absolute; left: 132px; top: 246px; width: 1340px; height: 10px; border-radius: 5px; background: #ff7a45; transform-origin: 0 50%; }
+    #i-nope { position: absolute; left: 140px; top: 330px; font-size: 60px; font-weight: 700; letter-spacing: -0.03em; }
+    #i-panel { position: absolute; left: 140px; top: 470px; width: 1640px; display: grid; gap: 12px; }
+    .i-row { position: relative; height: 72px; display: grid; grid-template-columns: 360px 1080px 140px; align-items: center; column-gap: 28px; padding: 0 24px; }
+    .i-hl { position: absolute; inset: 0; border-radius: 16px; background: rgba(255, 122, 69, 0.14); border: 2px solid #ff7a45; opacity: 0; }
+    .i-tok { position: relative; font-family: "Geist Mono", monospace; font-size: 46px; }
+    .i-track { position: relative; height: 30px; }
+    .i-bar { position: absolute; left: 0; top: 0; height: 30px; width: 100%; border-radius: 15px; background: #4a4a54; transform-origin: 0 50%; }
+    .i-pct { position: relative; font-family: "Geist Mono", monospace; font-size: 36px; color: #a0a0aa; text-align: right; }
+    #i-note { position: absolute; left: 164px; top: 908px; font-size: 30px; color: #a0a0aa; }
+    #i-end { position: absolute; left: 140px; top: 520px; width: 1640px; font-size: 92px; font-weight: 700; letter-spacing: -0.035em; line-height: 1.05; }
+    .i-a, .i-nw, .i-ew, #i-end2, .i-row, #i-note, #i-q { opacity: 0; }
+    #i-end2 { position: absolute; left: 140px; top: 760px; font-size: 48px; font-weight: 500; color: #ededee; }
+  </style>
+  <div id="root" data-composition-id="inventa" data-width="1920" data-height="1080">
+    <div id="i-stage" class="clip" data-start="0" data-duration="8" data-track-index="1">
+      <p id="i-q">¿Quién escribió «Las nueve lunas de Quilmes»?</p>
+      <p id="i-ans"><span class="i-a">Lo</span> <span class="i-a">escribió</span> <span class="i-a">Julio</span> <span class="i-a">Cortázar</span> <span class="i-a">en</span> <span class="i-a">1971.</span></p>
+      <div id="i-strike"></div>
+      <p id="i-nope"><span class="i-nw">Ese</span> <span class="i-nw">libro</span> <span class="i-nw i-acc">no</span> <span class="i-nw i-acc">existe.</span></p>
+      <div id="i-panel">
+        <div class="i-row" id="i-r0"><div class="i-hl"></div><span class="i-tok">Cortázar</span><span class="i-track"><span class="i-bar" data-p="24"></span></span><span class="i-pct">24%</span></div>
+        <div class="i-row"><div class="i-hl"></div><span class="i-tok">Borges</span><span class="i-track"><span class="i-bar" data-p="22"></span></span><span class="i-pct">22%</span></div>
+        <div class="i-row"><div class="i-hl"></div><span class="i-tok">Sabato</span><span class="i-track"><span class="i-bar" data-p="19"></span></span><span class="i-pct">19%</span></div>
+        <div class="i-row"><div class="i-hl"></div><span class="i-tok">Walsh</span><span class="i-track"><span class="i-bar" data-p="18"></span></span><span class="i-pct">18%</span></div>
+        <div class="i-row"><div class="i-hl"></div><span class="i-tok">Ocampo</span><span class="i-track"><span class="i-bar" data-p="17"></span></span><span class="i-pct">17%</span></div>
+      </div>
+      <p id="i-note">Libro y probabilidades inventados para el ejemplo</p>
+      <h2 id="i-end"><span class="i-ew">Predice</span> <span class="i-ew">lo</span> <span class="i-ew">probable,</span><br /><span class="i-ew i-acc">no</span> <span class="i-ew i-acc">lo</span> <span class="i-ew i-acc">verdadero.</span></h2>
+      <p id="i-end2">Por eso: verificá lo que importa.</p>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const E_IN = "expo.out", E_OUT = "power3.in";
+
+    // Una pregunta trampa
+    tl.fromTo("#i-q", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 0.15);
+    // Candidatos casi empatados: no sabe, pero igual elige
+    tl.fromTo(".i-row", { opacity: 0 }, { opacity: 1, duration: 0.25, stagger: 0.05, ease: "power2.out" }, 0.5);
+    tl.to("#i-note", { opacity: 1, duration: 0.2 }, 0.5);
+    tl.fromTo(".i-bar", { scaleX: 0 }, { scaleX: (i, el) => +el.dataset.p / 100, duration: 0.6, stagger: 0.05, ease: E_IN }, 0.55);
+    tl.to("#i-r0 .i-hl", { opacity: 1, duration: 0.15 }, 1.7);
+    tl.to("#i-r0 .i-bar", { backgroundColor: "#ff7a45", duration: 0.15 }, 1.7);
+    // Responde con total seguridad
+    tl.fromTo(".i-a", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.2, ease: E_IN, stagger: 0.17 }, 2.0);
+    // Tachado y verdad
+    tl.fromTo("#i-strike", { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: "power3.out" }, 3.4);
+    tl.to(".i-a", { color: "#8a8a94", duration: 0.2 }, 3.5);
+    tl.fromTo(".i-nw", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.13, ease: "power4.out", stagger: 0.067 }, 3.8);
+    tl.to([".i-row", "#i-note"], { opacity: 0, duration: 0.25, ease: E_OUT }, 4.3);
+    // La idea en una línea
+    tl.to("#i-q", { opacity: 0.35, duration: 0.3 }, 4.5);
+    tl.fromTo(".i-ew", { opacity: 0, color: "#3a3a42" }, { opacity: 1, color: (i, el) => (el.classList.contains("i-acc") ? "#ff7a45" : "#ededee"), duration: 0.2, ease: "power2.out", stagger: 0.09 }, 4.7);
+    tl.fromTo("#i-end2", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 5.5);
+    window.__timelines["inventa"] = tl;
+  </script>
+</template>

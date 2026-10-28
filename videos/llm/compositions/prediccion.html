@@ -1,0 +1,190 @@
+<template>
+  <style>
+    @font-face { font-family: "Geist"; src: url("assets/fonts/Geist-400.woff2") format("woff2"); font-weight: 100 900; font-display: block; }
+    @font-face { font-family: "Geist Mono"; src: url("assets/fonts/GeistMono-500.woff2") format("woff2"); font-weight: 100 900; font-display: block; }
+    #root { position: absolute; inset: 0; background: #0e0e10; font-family: "Geist", sans-serif; color: #ededee; overflow: hidden; }
+    #p-stage { position: absolute; inset: 0; }
+    .p-acc { color: #ff7a45; }
+    #p-intro { position: absolute; left: 140px; top: 360px; width: 1640px; font-size: 128px; font-weight: 700; letter-spacing: -0.04em; line-height: 1.02; }
+    #p-intro span, #p-line span, #p-learn .p-mw { display: inline-block; }
+    #p-q { position: absolute; left: 140px; top: 112px; font-size: 44px; font-weight: 500; color: #a0a0aa; }
+    #p-world { position: absolute; inset: 0; transform-origin: 140px 330px; }
+    #p-ans { position: absolute; left: 140px; top: 196px; width: 1640px; font-size: 88px; font-weight: 700; letter-spacing: -0.035em; line-height: 1.08; transform-origin: 0 0; }
+    .p-a { display: inline-block; }
+    #p-wall { position: absolute; left: 140px; top: -376px; width: 3400px; font-family: "Geist Mono", monospace; font-size: 30px; line-height: 44px; color: #6e6e78; white-space: nowrap; }
+    .p-wl { height: 44px; }
+    #p-panel { position: absolute; left: 140px; top: 470px; width: 1640px; height: 420px; }
+    .p-set { position: absolute; inset: 0; display: grid; gap: 12px; align-content: start; }
+    .p-row { position: relative; height: 72px; display: grid; grid-template-columns: 360px 1080px 140px; align-items: center; column-gap: 28px; padding: 0 24px; }
+    .p-hl { position: absolute; inset: 0; border-radius: 16px; background: rgba(255, 122, 69, 0.14); border: 2px solid #ff7a45; opacity: 0; }
+    .p-tok { position: relative; font-family: "Geist Mono", monospace; font-size: 46px; }
+    .p-track { position: relative; height: 30px; }
+    .p-bar { position: absolute; left: 0; top: 0; height: 30px; width: 100%; border-radius: 15px; background: #4a4a54; transform-origin: 0 50%; }
+    .p-pct { position: relative; font-family: "Geist Mono", monospace; font-size: 36px; color: #a0a0aa; text-align: right; }
+    #p-note { position: absolute; left: 164px; top: 908px; font-size: 30px; color: #a0a0aa; }
+    #p-line { position: absolute; left: 140px; top: 540px; width: 1640px; font-size: 68px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; }
+    #p-photo { position: absolute; inset: 0; overflow: hidden; }
+    #p-photo-img { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover; }
+    #p-shade { position: absolute; inset: 0; background: radial-gradient(85% 130% at 0% 55%, rgba(14, 14, 16, 0.94) 30%, rgba(14, 14, 16, 0) 78%); }
+    #p-learn { position: absolute; left: 140px; top: 300px; width: 1100px; font-size: 92px; font-weight: 700; letter-spacing: -0.035em; line-height: 1.04; }
+    #p-q, #p-note, .p-a, .p-set, #p-line .p-lw, #p-learn .p-mw, #p-learn2, .p-wl, #p-photo { opacity: 0; }
+    #p-learn2 { position: absolute; left: 140px; top: 640px; width: 900px; font-size: 44px; font-weight: 500; line-height: 1.3; color: #ededee; }
+  </style>
+  <div id="root" data-composition-id="prediccion" data-width="1920" data-height="1080">
+    <div id="p-stage" class="clip" data-start="0" data-duration="24" data-track-index="1">
+      <div id="p-photo"><img id="p-photo-img" src="assets/img/library-duo.jpg" alt="Biblioteca" /><div id="p-shade"></div></div>
+      <h2 id="p-intro"><span class="p-iw">Un</span> <span class="p-iw">LLM</span> <span class="p-iw">hace</span> <span class="p-iw">lo</span> <span class="p-iw">mismo,</span><br /><span class="p-iw">a</span> <span class="p-iw p-acc">otra</span> <span class="p-iw p-acc">escala.</span></h2>
+      <p id="p-q">¿Por qué el cielo es azul?</p>
+      <div id="p-world" data-layout-allow-overflow>
+        <div id="p-wall" data-layout-ignore data-layout-allow-overflow>
+        <div class="p-wl">En un lugar de la Mancha, de cuyo nombre no quiero acordarme,&nbsp;&nbsp;&nbsp;def predecir(tokens): return modelo(tokens).argmax()&nbsp;&nbsp;&nbsp;La fotosíntesis convierte la luz en energía química.</div>
+        <div class="p-wl">Receta: 200 g de harina, 2 huevos y una pizca de sal.&nbsp;&nbsp;&nbsp;The mitochondria is the powerhouse of the cell.&nbsp;&nbsp;&nbsp;SELECT nombre FROM clientes WHERE pais = 'AR';</div>
+        <div class="p-wl">Todos los habitantes de la Nación gozan de los siguientes derechos...&nbsp;&nbsp;&nbsp;¿Cómo cambio la batería del auto? Primero, apagá el motor.&nbsp;&nbsp;&nbsp;E = mc², donde c es la velocidad de la luz.</div>
+        <div class="p-wl">Querido diario: hoy llovió todo el día.&nbsp;&nbsp;&nbsp;for (let i = 0; i &lt; n; i++) { total += precios[i]; }&nbsp;&nbsp;&nbsp;Il était une fois, dans un pays lointain...</div>
+        <div class="p-wl">Tutorial: cómo armar una planilla de gastos.&nbsp;&nbsp;&nbsp;La Revolución de Mayo ocurrió en 1810.&nbsp;&nbsp;&nbsp;import numpy as np</div>
+        <div class="p-wl">Las ballenas se comunican con cantos que viajan kilómetros.&nbsp;&nbsp;&nbsp;Reseña: el hotel estaba limpio y el desayuno, excelente.&nbsp;&nbsp;&nbsp;To be, or not to be, that is the question.</div>
+        <div class="p-wl">Manual de usuario, capítulo 3: configuración inicial.&nbsp;&nbsp;&nbsp;La ley de Ohm relaciona tensión, corriente y resistencia.&nbsp;&nbsp;&nbsp;En un lugar de la Mancha, de cuyo nombre no quiero acordarme,</div>
+        <div class="p-wl">def predecir(tokens): return modelo(tokens).argmax()&nbsp;&nbsp;&nbsp;La fotosíntesis convierte la luz en energía química.&nbsp;&nbsp;&nbsp;Receta: 200 g de harina, 2 huevos y una pizca de sal.</div>
+        <div class="p-wl">The mitochondria is the powerhouse of the cell.&nbsp;&nbsp;&nbsp;SELECT nombre FROM clientes WHERE pais = 'AR';&nbsp;&nbsp;&nbsp;Todos los habitantes de la Nación gozan de los siguientes derechos...</div>
+        <div class="p-wl">¿Cómo cambio la batería del auto? Primero, apagá el motor.&nbsp;&nbsp;&nbsp;E = mc², donde c es la velocidad de la luz.&nbsp;&nbsp;&nbsp;Querido diario: hoy llovió todo el día.</div>
+        <div class="p-wl">for (let i = 0; i &lt; n; i++) { total += precios[i]; }&nbsp;&nbsp;&nbsp;Il était une fois, dans un pays lointain...&nbsp;&nbsp;&nbsp;Tutorial: cómo armar una planilla de gastos.</div>
+        <div class="p-wl">La Revolución de Mayo ocurrió en 1810.&nbsp;&nbsp;&nbsp;import numpy as np&nbsp;&nbsp;&nbsp;Las ballenas se comunican con cantos que viajan kilómetros.</div>
+        <div class="p-wl">Reseña: el hotel estaba limpio y el desayuno, excelente.&nbsp;&nbsp;&nbsp;To be, or not to be, that is the question.&nbsp;&nbsp;&nbsp;Manual de usuario, capítulo 3: configuración inicial.</div>
+        <div class="p-wl">La ley de Ohm relaciona tensión, corriente y resistencia.&nbsp;&nbsp;&nbsp;En un lugar de la Mancha, de cuyo nombre no quiero acordarme,&nbsp;&nbsp;&nbsp;def predecir(tokens): return modelo(tokens).argmax()</div>
+        <div class="p-wl">La fotosíntesis convierte la luz en energía química.&nbsp;&nbsp;&nbsp;Receta: 200 g de harina, 2 huevos y una pizca de sal.&nbsp;&nbsp;&nbsp;The mitochondria is the powerhouse of the cell.</div>
+        <div class="p-wl p-gap"></div>
+        <div class="p-wl p-gap"></div>
+        <div class="p-wl">SELECT nombre FROM clientes WHERE pais = 'AR';&nbsp;&nbsp;&nbsp;Todos los habitantes de la Nación gozan de los siguientes derechos...&nbsp;&nbsp;&nbsp;¿Cómo cambio la batería del auto? Primero, apagá el motor.</div>
+        <div class="p-wl">E = mc², donde c es la velocidad de la luz.&nbsp;&nbsp;&nbsp;Querido diario: hoy llovió todo el día.&nbsp;&nbsp;&nbsp;for (let i = 0; i &lt; n; i++) { total += precios[i]; }</div>
+        <div class="p-wl">Il était une fois, dans un pays lointain...&nbsp;&nbsp;&nbsp;Tutorial: cómo armar una planilla de gastos.&nbsp;&nbsp;&nbsp;La Revolución de Mayo ocurrió en 1810.</div>
+        <div class="p-wl">import numpy as np&nbsp;&nbsp;&nbsp;Las ballenas se comunican con cantos que viajan kilómetros.&nbsp;&nbsp;&nbsp;Reseña: el hotel estaba limpio y el desayuno, excelente.</div>
+        <div class="p-wl">To be, or not to be, that is the question.&nbsp;&nbsp;&nbsp;Manual de usuario, capítulo 3: configuración inicial.&nbsp;&nbsp;&nbsp;La ley de Ohm relaciona tensión, corriente y resistencia.</div>
+        <div class="p-wl">En un lugar de la Mancha, de cuyo nombre no quiero acordarme,&nbsp;&nbsp;&nbsp;def predecir(tokens): return modelo(tokens).argmax()&nbsp;&nbsp;&nbsp;La fotosíntesis convierte la luz en energía química.</div>
+        <div class="p-wl">Receta: 200 g de harina, 2 huevos y una pizca de sal.&nbsp;&nbsp;&nbsp;The mitochondria is the powerhouse of the cell.&nbsp;&nbsp;&nbsp;SELECT nombre FROM clientes WHERE pais = 'AR';</div>
+        <div class="p-wl">Todos los habitantes de la Nación gozan de los siguientes derechos...&nbsp;&nbsp;&nbsp;¿Cómo cambio la batería del auto? Primero, apagá el motor.&nbsp;&nbsp;&nbsp;E = mc², donde c es la velocidad de la luz.</div>
+        <div class="p-wl">Querido diario: hoy llovió todo el día.&nbsp;&nbsp;&nbsp;for (let i = 0; i &lt; n; i++) { total += precios[i]; }&nbsp;&nbsp;&nbsp;Il était une fois, dans un pays lointain...</div>
+        <div class="p-wl">Tutorial: cómo armar una planilla de gastos.&nbsp;&nbsp;&nbsp;La Revolución de Mayo ocurrió en 1810.&nbsp;&nbsp;&nbsp;import numpy as np</div>
+        <div class="p-wl">Las ballenas se comunican con cantos que viajan kilómetros.&nbsp;&nbsp;&nbsp;Reseña: el hotel estaba limpio y el desayuno, excelente.&nbsp;&nbsp;&nbsp;To be, or not to be, that is the question.</div>
+        <div class="p-wl">Manual de usuario, capítulo 3: configuración inicial.&nbsp;&nbsp;&nbsp;La ley de Ohm relaciona tensión, corriente y resistencia.&nbsp;&nbsp;&nbsp;En un lugar de la Mancha, de cuyo nombre no quiero acordarme,</div>
+        <div class="p-wl">def predecir(tokens): return modelo(tokens).argmax()&nbsp;&nbsp;&nbsp;La fotosíntesis convierte la luz en energía química.&nbsp;&nbsp;&nbsp;Receta: 200 g de harina, 2 huevos y una pizca de sal.</div>
+        <div class="p-wl">The mitochondria is the powerhouse of the cell.&nbsp;&nbsp;&nbsp;SELECT nombre FROM clientes WHERE pais = 'AR';&nbsp;&nbsp;&nbsp;Todos los habitantes de la Nación gozan de los siguientes derechos...</div>
+        <div class="p-wl">¿Cómo cambio la batería del auto? Primero, apagá el motor.&nbsp;&nbsp;&nbsp;E = mc², donde c es la velocidad de la luz.&nbsp;&nbsp;&nbsp;Querido diario: hoy llovió todo el día.</div>
+        <div class="p-wl">for (let i = 0; i &lt; n; i++) { total += precios[i]; }&nbsp;&nbsp;&nbsp;Il était une fois, dans un pays lointain...&nbsp;&nbsp;&nbsp;Tutorial: cómo armar una planilla de gastos.</div>
+        <div class="p-wl">La Revolución de Mayo ocurrió en 1810.&nbsp;&nbsp;&nbsp;import numpy as np&nbsp;&nbsp;&nbsp;Las ballenas se comunican con cantos que viajan kilómetros.</div>
+        <div class="p-wl">Reseña: el hotel estaba limpio y el desayuno, excelente.&nbsp;&nbsp;&nbsp;To be, or not to be, that is the question.&nbsp;&nbsp;&nbsp;Manual de usuario, capítulo 3: configuración inicial.</div>
+        <div class="p-wl">La ley de Ohm relaciona tensión, corriente y resistencia.&nbsp;&nbsp;&nbsp;En un lugar de la Mancha, de cuyo nombre no quiero acordarme,&nbsp;&nbsp;&nbsp;def predecir(tokens): return modelo(tokens).argmax()</div>
+        <div class="p-wl">La fotosíntesis convierte la luz en energía química.&nbsp;&nbsp;&nbsp;Receta: 200 g de harina, 2 huevos y una pizca de sal.&nbsp;&nbsp;&nbsp;The mitochondria is the powerhouse of the cell.</div>
+        <div class="p-wl">SELECT nombre FROM clientes WHERE pais = 'AR';&nbsp;&nbsp;&nbsp;Todos los habitantes de la Nación gozan de los siguientes derechos...&nbsp;&nbsp;&nbsp;¿Cómo cambio la batería del auto? Primero, apagá el motor.</div>
+        <div class="p-wl">E = mc², donde c es la velocidad de la luz.&nbsp;&nbsp;&nbsp;Querido diario: hoy llovió todo el día.&nbsp;&nbsp;&nbsp;for (let i = 0; i &lt; n; i++) { total += precios[i]; }</div>
+        <div class="p-wl">Il était une fois, dans un pays lointain...&nbsp;&nbsp;&nbsp;Tutorial: cómo armar una planilla de gastos.&nbsp;&nbsp;&nbsp;La Revolución de Mayo ocurrió en 1810.</div>
+        <div class="p-wl">import numpy as np&nbsp;&nbsp;&nbsp;Las ballenas se comunican con cantos que viajan kilómetros.&nbsp;&nbsp;&nbsp;Reseña: el hotel estaba limpio y el desayuno, excelente.</div>
+        <div class="p-wl">To be, or not to be, that is the question.&nbsp;&nbsp;&nbsp;Manual de usuario, capítulo 3: configuración inicial.&nbsp;&nbsp;&nbsp;La ley de Ohm relaciona tensión, corriente y resistencia.</div>
+        <div class="p-wl">En un lugar de la Mancha, de cuyo nombre no quiero acordarme,&nbsp;&nbsp;&nbsp;def predecir(tokens): return modelo(tokens).argmax()&nbsp;&nbsp;&nbsp;La fotosíntesis convierte la luz en energía química.</div>
+        <div class="p-wl">Receta: 200 g de harina, 2 huevos y una pizca de sal.&nbsp;&nbsp;&nbsp;The mitochondria is the powerhouse of the cell.&nbsp;&nbsp;&nbsp;SELECT nombre FROM clientes WHERE pais = 'AR';</div>
+        <div class="p-wl">Todos los habitantes de la Nación gozan de los siguientes derechos...&nbsp;&nbsp;&nbsp;¿Cómo cambio la batería del auto? Primero, apagá el motor.&nbsp;&nbsp;&nbsp;E = mc², donde c es la velocidad de la luz.</div>
+        <div class="p-wl">Querido diario: hoy llovió todo el día.&nbsp;&nbsp;&nbsp;for (let i = 0; i &lt; n; i++) { total += precios[i]; }&nbsp;&nbsp;&nbsp;Il était une fois, dans un pays lointain...</div>
+        <div class="p-wl">Tutorial: cómo armar una planilla de gastos.&nbsp;&nbsp;&nbsp;La Revolución de Mayo ocurrió en 1810.&nbsp;&nbsp;&nbsp;import numpy as np</div>
+        <div class="p-wl">Las ballenas se comunican con cantos que viajan kilómetros.&nbsp;&nbsp;&nbsp;Reseña: el hotel estaba limpio y el desayuno, excelente.&nbsp;&nbsp;&nbsp;To be, or not to be, that is the question.</div>
+        <div class="p-wl">Manual de usuario, capítulo 3: configuración inicial.&nbsp;&nbsp;&nbsp;La ley de Ohm relaciona tensión, corriente y resistencia.&nbsp;&nbsp;&nbsp;En un lugar de la Mancha, de cuyo nombre no quiero acordarme,</div>
+        <div class="p-wl">def predecir(tokens): return modelo(tokens).argmax()&nbsp;&nbsp;&nbsp;La fotosíntesis convierte la luz en energía química.&nbsp;&nbsp;&nbsp;Receta: 200 g de harina, 2 huevos y una pizca de sal.</div>
+        </div>
+        <p id="p-ans"><span class="p-a" id="p-a0">Porque</span> <span class="p-a" id="p-a1">la</span> <span class="p-a" id="p-a2">luz</span> <span class="p-a" id="p-a3">del</span> <span class="p-a" id="p-a4">sol</span> <span class="p-a" id="p-a5">choca</span> <span class="p-a" id="p-a6">con</span> <span class="p-a" id="p-a7">el</span> <span class="p-a" id="p-a8">aire,</span> <span class="p-a" id="p-a9">que</span> <span class="p-a" id="p-a10">dispersa</span> <span class="p-a" id="p-a11">más</span> <span class="p-a" id="p-a12">el</span> <span class="p-a" id="p-a13">azul.</span></p>
+      </div>
+      <div id="p-panel">
+      <div id="p-set1" class="p-set">
+        <div class="p-row" id="p-set1-r0"><div class="p-hl"></div><span class="p-tok">luz</span><span class="p-track"><span class="p-bar" data-p="62"></span></span><span class="p-pct">62%</span></div>
+        <div class="p-row" id="p-set1-r1"><div class="p-hl"></div><span class="p-tok">atmósfera</span><span class="p-track"><span class="p-bar" data-p="21"></span></span><span class="p-pct">21%</span></div>
+        <div class="p-row" id="p-set1-r2"><div class="p-hl"></div><span class="p-tok">Tierra</span><span class="p-track"><span class="p-bar" data-p="9"></span></span><span class="p-pct">9%</span></div>
+        <div class="p-row" id="p-set1-r3"><div class="p-hl"></div><span class="p-tok">gente</span><span class="p-track"><span class="p-bar" data-p="5"></span></span><span class="p-pct">5%</span></div>
+        <div class="p-row" id="p-set1-r4"><div class="p-hl"></div><span class="p-tok">noche</span><span class="p-track"><span class="p-bar" data-p="3"></span></span><span class="p-pct">3%</span></div>
+      </div>
+      <div id="p-set2" class="p-set">
+        <div class="p-row" id="p-set2-r0"><div class="p-hl"></div><span class="p-tok">del</span><span class="p-track"><span class="p-bar" data-p="48"></span></span><span class="p-pct">48%</span></div>
+        <div class="p-row" id="p-set2-r1"><div class="p-hl"></div><span class="p-tok">se</span><span class="p-track"><span class="p-bar" data-p="27"></span></span><span class="p-pct">27%</span></div>
+        <div class="p-row" id="p-set2-r2"><div class="p-hl"></div><span class="p-tok">azul</span><span class="p-track"><span class="p-bar" data-p="11"></span></span><span class="p-pct">11%</span></div>
+        <div class="p-row" id="p-set2-r3"><div class="p-hl"></div><span class="p-tok">viaja</span><span class="p-track"><span class="p-bar" data-p="8"></span></span><span class="p-pct">8%</span></div>
+        <div class="p-row" id="p-set2-r4"><div class="p-hl"></div><span class="p-tok">solar</span><span class="p-track"><span class="p-bar" data-p="6"></span></span><span class="p-pct">6%</span></div>
+      </div>
+      <div id="p-set3" class="p-set">
+        <div class="p-row" id="p-set3-r0"><div class="p-hl"></div><span class="p-tok">sol</span><span class="p-track"><span class="p-bar" data-p="81"></span></span><span class="p-pct">81%</span></div>
+        <div class="p-row" id="p-set3-r1"><div class="p-hl"></div><span class="p-tok">día</span><span class="p-track"><span class="p-bar" data-p="9"></span></span><span class="p-pct">9%</span></div>
+        <div class="p-row" id="p-set3-r2"><div class="p-hl"></div><span class="p-tok">cielo</span><span class="p-track"><span class="p-bar" data-p="5"></span></span><span class="p-pct">5%</span></div>
+        <div class="p-row" id="p-set3-r3"><div class="p-hl"></div><span class="p-tok">universo</span><span class="p-track"><span class="p-bar" data-p="3"></span></span><span class="p-pct">3%</span></div>
+        <div class="p-row" id="p-set3-r4"><div class="p-hl"></div><span class="p-tok">foco</span><span class="p-track"><span class="p-bar" data-p="2"></span></span><span class="p-pct">2%</span></div>
+      </div>
+      </div>
+      <p id="p-note">Probabilidades ilustrativas</p>
+      <p id="p-line"><span class="p-lw">No</span> <span class="p-lw">busca</span> <span class="p-lw">la</span> <span class="p-lw">respuesta.</span> <span class="p-lw">Calcula</span> <span class="p-lw">la</span> <span class="p-lw p-acc">palabra</span> <span class="p-lw p-acc">que</span> <span class="p-lw p-acc">sigue.</span></p>
+      <h2 id="p-learn"><span class="p-l1"><span class="p-mw">¿Cómo</span> <span class="p-mw">aprendió?</span></span><br /><span class="p-l2"><span class="p-mw">Leyendo</span> <span class="p-mw">casi</span> <span class="p-mw p-acc">todo</span> <span class="p-mw">lo</span> <span class="p-mw">escrito.</span></span></h2>
+      <p id="p-learn2">Libros, páginas web y código, en cantidades enormes.</p>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const E_IN = "expo.out", E_OUT = "power3.in";
+    const words = (sel, t, opts) =>
+      tl.fromTo(sel, { opacity: 0, filter: "blur(6px)" },
+        Object.assign({ opacity: 1, filter: "blur(0px)", duration: 0.13, ease: "power4.out", stagger: 0.067 }, opts || {}), t);
+
+    // Estado inicial
+
+    // 1. "Un LLM hace lo mismo, a otra escala." (de gris a tinta, sin moverse)
+    tl.fromTo("#p-intro .p-iw", { opacity: 0, color: "#3a3a42" },
+      { opacity: 1, color: (i, el) => (el.classList.contains("p-acc") ? "#ff7a45" : "#ededee"), duration: 0.2, ease: "power2.out", stagger: 0.09 }, 0.05);
+    tl.to("#p-intro", { opacity: 0, filter: "blur(8px)", duration: 0.22, ease: E_OUT }, 3.2);
+
+    // 2. La pregunta y el arranque de la respuesta
+    tl.fromTo("#p-q", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 3.4);
+    words(["#p-a0", "#p-a1"], 3.6);
+
+    // 3. Tres pasos lentos: candidatos, se elige uno, entra a la frase
+    const step = (sid, t0, pickIdx, wordSel) => {
+      tl.to("#" + sid, { opacity: 1, duration: 0.01 }, t0);
+      tl.fromTo("#" + sid + " .p-row", { opacity: 0 }, { opacity: 1, duration: 0.25, stagger: 0.05, ease: "power2.out" }, t0);
+      tl.fromTo("#" + sid + " .p-bar", { scaleX: 0 }, { scaleX: (i, el) => +el.dataset.p / 100, duration: 0.6, stagger: 0.05, ease: E_IN }, t0 + 0.05);
+      tl.to("#" + sid + "-r" + pickIdx + " .p-hl", { opacity: 1, duration: 0.15, ease: "power2.out" }, t0 + 1.5);
+      tl.to("#" + sid + "-r" + pickIdx + " .p-bar", { backgroundColor: "#ff7a45", duration: 0.15 }, t0 + 1.5);
+      tl.fromTo(wordSel, { opacity: 0, y: 30, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.3, ease: E_IN }, t0 + 1.9);
+    };
+    tl.to("#p-note", { opacity: 1, duration: 0.2 }, 3.9);
+    step("p-set1", 3.9, 0, "#p-a2");
+    tl.to("#p-set1", { opacity: 0, duration: 0.2, ease: E_OUT }, 5.95);
+    step("p-set2", 6.2, 0, "#p-a3");
+    tl.to("#p-set2", { opacity: 0, duration: 0.2, ease: E_OUT }, 8.25);
+    step("p-set3", 8.4, 0, "#p-a4");
+
+    // 4. El resto, rápido: las barras laten mientras entran las palabras
+    tl.to("#p-set3 .p-hl", { opacity: 0, duration: 0.15 }, 10.3);
+    tl.to(["#p-set3 .p-tok", "#p-set3 .p-pct"], { opacity: 0.2, duration: 0.15 }, 10.3);
+    tl.to("#p-set3 .p-bar", { backgroundColor: "#4a4a54", duration: 0.1 }, 10.3);
+    const pulses = [[.44,.21,.18,.1,.07],[.7,.12,.09,.05,.04],[.38,.3,.15,.1,.07],[.55,.2,.12,.08,.05],[.62,.18,.1,.06,.04],[.33,.29,.2,.11,.07],[.5,.24,.13,.08,.05],[.73,.11,.08,.05,.03],[.41,.27,.16,.1,.06]];
+    pulses.forEach((ws, k) => {
+      tl.to("#p-set3 .p-bar", { scaleX: (i) => ws[i], duration: 0.16, ease: "power2.inOut" }, 10.35 + k * 0.2);
+      tl.fromTo("#p-a" + (5 + k), { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.2, ease: E_IN }, 10.35 + k * 0.2);
+    });
+    tl.to(["#p-set3", "#p-note"], { opacity: 0, duration: 0.25, ease: E_OUT }, 12.6);
+
+    // 5. La idea clave
+    words("#p-line .p-lw", 12.8, { stagger: 0.07 });
+    tl.to("#p-line", { opacity: 0, filter: "blur(8px)", duration: 0.2, ease: E_OUT }, 16.4);
+
+    // 6. La frase se vuelve una línea entre todo lo escrito
+    tl.to("#p-q", { opacity: 0, duration: 0.2, ease: E_OUT }, 16.4);
+    tl.to("#p-ans", { scale: 0.34, y: 112, duration: 1.0, ease: "power2.inOut" }, 16.6);
+    tl.to("#p-ans .p-a", { color: "#ff7a45", duration: 0.4, ease: "power2.out" }, 17.2);
+    tl.fromTo(".p-wl", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.3, stagger: 0.018, ease: "power2.out" }, 16.9);
+    tl.fromTo("#p-world", { scale: 1 }, { scale: 0.55, duration: 1.9, ease: "power2.inOut" }, 16.8);
+
+    // 7. La pared se disuelve en la biblioteca
+    tl.to("#p-world", { opacity: 0, filter: "blur(12px)", duration: 0.6, ease: "power2.in" }, 18.8);
+    tl.to("#p-photo", { opacity: 1, duration: 0.7, ease: "power2.out" }, 19.0);
+    tl.fromTo("#p-photo-img", { scale: 1.14 }, { scale: 1, duration: 1.8, ease: E_IN }, 19.0);
+    words("#p-learn .p-l1 .p-mw", 19.8);
+    words("#p-learn .p-l2 .p-mw", 20.2);
+    tl.fromTo("#p-learn2", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 20.9);
+    tl.to(["#p-learn", "#p-learn2"], { opacity: 0, filter: "blur(8px)", duration: 0.22, ease: E_OUT }, 23.5);
+    tl.to("#p-photo", { opacity: 0, duration: 0.3, ease: "power2.in" }, 23.6);
+
+    window.__timelines["prediccion"] = tl;
+  </script>
+</template>

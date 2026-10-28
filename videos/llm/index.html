@@ -1,0 +1,38 @@
+<!doctype html>
+<html
+  lang="es"
+  data-resolution="landscape"
+  data-composition-variables='[
+    {"id":"color-ground","type":"color","label":"Fondo","default":"#0e0e10"},
+    {"id":"color-ink","type":"color","label":"Texto","default":"#ededee"},
+    {"id":"color-accent","type":"color","label":"Acento","default":"#ff7a45"}
+  ]'
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Geist"; src: url("assets/fonts/Geist-400.woff2") format("woff2"); font-weight: 100 900; font-display: block; }
+      @font-face { font-family: "Geist Mono"; src: url("assets/fonts/GeistMono-500.woff2") format("woff2"); font-weight: 100 900; font-display: block; }
+      :root { --color-ground: #0e0e10; --color-ink: #ededee; --color-accent: #ff7a45; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: var(--color-ground); }
+      #root { width: 100%; height: 100%; position: relative; font-family: "Geist", sans-serif; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="38.5" data-width="1920" data-height="1080">
+      <div id="teclado" data-composition-id="teclado" data-composition-src="compositions/teclado.html"
+        data-start="0" data-duration="6.5" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div id="prediccion" data-composition-id="prediccion" data-composition-src="compositions/prediccion.html"
+        data-start="6.5" data-duration="24" data-track-index="2" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div id="inventa" data-composition-id="inventa" data-composition-src="compositions/inventa.html"
+        data-start="30.5" data-duration="8" data-track-index="3" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>

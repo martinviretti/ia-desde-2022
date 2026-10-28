@@ -1,0 +1,693 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ponerse al día con la IA: una guía para quien se quedó en 2022</title>
+<meta name="description" content="Una guía para entender la inteligencia artificial de hoy desde cero: qué cambió desde ChatGPT, cómo funciona, quién es quién, agentes, riesgos y cómo trabajar con ella.">
+<meta name="color-scheme" content="light dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="progress" aria-hidden="true"></div>
+
+<header class="topbar">
+  <a class="brand" href="#top">Ponerse al día<span class="brand-sub"> con la IA</span></a>
+  <div class="topbar-actions">
+    <button class="icon-btn" id="themeToggle" type="button" aria-label="Cambiar entre modo claro y oscuro">
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.39 5.39 0 0 1-4.4 2.26 5.4 5.4 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1Z"/></svg>
+    </button>
+    <button class="menu-btn" id="menuToggle" type="button" aria-expanded="false" aria-controls="toc">Índice</button>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-copy">
+    <p class="eyebrow">Actualizada a octubre de 2026, unos 20 minutos de lectura</p>
+    <h1><span class="h1-line">Te desconectaste en 2022.</span> <span class="h1-line">Volviste a otro mundo.</span></h1>
+    <p class="hero-sub">Una guía para entender la inteligencia artificial de hoy, desde cero, sin humo y sin fórmulas.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="#resumen">Empezar</a>
+      <a class="btn btn-ghost" href="#glosario">Ir al glosario</a>
+    </div>
+  </div>
+  <figure class="hero-visual">
+    <svg id="worlds" viewBox="0 0 600 480" role="img" aria-label="Antes del 30 de noviembre de 2022 la IA era casi invisible para la gente; después, está en todos lados."></svg>
+  </figure>
+</section>
+
+<div class="shell">
+
+  <nav class="toc" id="toc" aria-label="Secciones de la guía">
+    <ol>
+      <li><a href="#resumen">En un minuto</a></li>
+      <li><a href="#quiebre">El quiebre</a></li>
+      <li><a href="#timeline">Lo que te perdiste</a></li>
+      <li><a href="#hoy">Qué se puede hacer hoy</a></li>
+      <li><a href="#funciona">Cómo funciona</a></li>
+      <li><a href="#mapa">Quién es quién</a></li>
+      <li><a href="#agentes">De chatbots a agentes</a></li>
+      <li><a href="#riesgos">Límites y riesgos</a></li>
+      <li><a href="#impacto">Impacto</a></li>
+      <li><a href="#trabajar">Cómo trabajar con IA</a></li>
+      <li><a href="#glosario">Glosario</a></li>
+      <li><a href="#seguir">Por dónde seguir</a></li>
+    </ol>
+    <p class="toc-note">Cada sección tiene una explicación general y un bloque <strong>Para curiosos técnicos</strong> que podés abrir si querés más detalle.</p>
+  </nav>
+
+  <main>
+
+    <!-- RESUMEN -->
+    <section class="section" id="resumen">
+      <h2>Si tenés un minuto</h2>
+      <ol class="tldr">
+        <li><p>La IA de hoy conversa, escribe, programa, crea imágenes y video, y cada vez más <strong>actúa por vos</strong>.</p><a href="#hoy">Qué se puede hacer</a></li>
+        <li><p>Por dentro, <strong>predice la próxima palabra</strong> a una escala gigante. Por eso es brillante y a veces inventa con total seguridad.</p><a href="#funciona">Cómo funciona</a></li>
+        <li><p>Unas pocas empresas de EE.UU. y China compiten por los mejores modelos. <strong>Chips y energía</strong> son el cuello de botella.</p><a href="#mapa">Quién es quién</a></li>
+        <li><p>El gran salto de 2025 y 2026 son los <strong>agentes</strong>: IA que recibe un objetivo y usa herramientas hasta cumplirlo.</p><a href="#agentes">Agentes</a></li>
+        <li><p>Usarla bien es una habilidad: <strong>dar contexto, verificar lo que importa y cuidar qué datos le pasás</strong>.</p><a href="#trabajar">Cómo trabajar con IA</a></li>
+      </ol>
+    </section>
+
+    <!-- QUIEBRE -->
+    <section class="section" id="quiebre">
+      <h2>El quiebre: 30 de noviembre de 2022</h2>
+
+      <aside class="then-now">
+        <span class="then-label">En 2022 sabías</span>
+        <p>Que la IA existía: te recomendaba series, filtraba el spam, reconocía caras en tus fotos y le podías pedir a Alexa que pusiera música. Pero era algo escondido adentro de otros productos.</p>
+      </aside>
+
+      <div class="prose">
+        <p>Ese día OpenAI, una empresa que casi nadie fuera del mundo tech conocía, publicó <strong>ChatGPT</strong>: una ventana de chat gratuita donde podías escribirle a una IA en lenguaje normal y te contestaba como una persona. Sin instalar nada, sin saber programar.</p>
+        <p>Según una estimación del banco UBS, en dos meses llegó a unos <strong>100 millones de usuarios</strong>, el crecimiento más rápido de una app de consumo hasta ese momento. A TikTok le había llevado nueve meses; a Instagram, dos años y medio.</p>
+        <p>Por eso para la gente común hay un "antes" y un "después" tan marcados. Pero ojo: <strong>el quiebre fue de percepción, no de tecnología.</strong> Las piezas venían armándose hace años. Lo nuevo fue que cualquiera podía usarlas.</p>
+      </div>
+
+      <div class="origins">
+        <h3>Lo que ya venía cocinándose</h3>
+        <ol class="origins-list">
+          <li><span class="yr">2017</span><p>Investigadores de Google publican <em>Attention Is All You Need</em> y presentan el <strong>Transformer</strong>, la arquitectura sobre la que se construyen casi todos los modelos actuales.</p></li>
+          <li><span class="yr">2020</span><p>OpenAI presenta <strong>GPT-3</strong>, un modelo que ya escribía textos sorprendentes, pero solo lo usaban desarrolladores.</p></li>
+          <li><span class="yr">2021</span><p>GitHub lanza en preview <strong>Copilot</strong>, que sugiere código mientras programás. Los desarrolladores lo vieron antes que nadie.</p></li>
+          <li><span class="yr">2022</span><p>Explota la generación de imágenes: <strong>DALL·E 2</strong> (abril), <strong>Midjourney</strong> (julio) y <strong>Stable Diffusion</strong> (agosto). En noviembre llega ChatGPT.</p></li>
+        </ol>
+      </div>
+
+      <div class="worlds-compare">
+        <h3>Dos mundos, lado a lado</h3>
+        <div class="wc-head" aria-hidden="true"><span></span><span class="wc-a">Mundo A, hasta 2022</span><span class="wc-b">Mundo B, hoy</span></div>
+        <dl class="wc-rows">
+          <div class="wc-row"><dt>Buscar información</dt><dd class="wc-a" data-label="Mundo A">Googleabas y leías diez links.</dd><dd class="wc-b" data-label="Mundo B">Preguntás y te responde con fuentes, o le pedís que investigue por vos y te arme un informe.</dd></div>
+          <div class="wc-row"><dt>Escribir</dt><dd class="wc-a" data-label="Mundo A">Hoja en blanco y corrector ortográfico.</dd><dd class="wc-b" data-label="Mundo B">Un borrador en segundos. Vos editás y decidís.</dd></div>
+          <div class="wc-row"><dt>Programar</dt><dd class="wc-a" data-label="Mundo A">Stack Overflow y autocompletado.</dd><dd class="wc-b" data-label="Mundo B">Agentes que escriben, prueban y corrigen código casi solos.</dd></div>
+          <div class="wc-row"><dt>Imágenes y video</dt><dd class="wc-a" data-label="Mundo A">Photoshop, bancos de imágenes, horas de edición.</dd><dd class="wc-b" data-label="Mundo B">Se generan a partir de una descripción. Y también se falsifican.</dd></div>
+          <div class="wc-row"><dt>Hablarle a una máquina</dt><dd class="wc-a" data-label="Mundo A">"Alexa, poné música". Comandos fijos.</dd><dd class="wc-b" data-label="Mundo B">Conversación fluida por voz, con interrupciones y en cualquier idioma.</dd></div>
+          <div class="wc-row"><dt>Qué era "la IA"</dt><dd class="wc-a" data-label="Mundo A">Algo invisible, adentro de otros productos.</dd><dd class="wc-b" data-label="Mundo B">Un producto en sí mismo, que cientos de millones de personas usan todos los días.</dd></div>
+        </dl>
+      </div>
+
+      <details class="tech">
+        <summary>Para curiosos técnicos: ¿por qué funcionó ChatGPT y no GPT-3?</summary>
+        <div class="tech-body">
+          <p>GPT-3 era un modelo "crudo": completaba texto, pero no seguía instrucciones de forma confiable. ChatGPT se basó en <strong>GPT-3.5</strong>, ajustado con una técnica llamada <strong>RLHF</strong> (aprendizaje por refuerzo con feedback humano): personas calificaban respuestas y el modelo aprendía a preferir las útiles, claras y seguras.</p>
+          <p>A eso se sumó una interfaz de chat que mantiene el contexto de la conversación. La combinación de "modelo que obedece" e "interfaz que cualquiera entiende" fue lo que destrabó la adopción masiva. La tecnología de base ya estaba publicada; el salto fue de producto.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="section" id="timeline">
+      <h2>Lo que te perdiste, año por año</h2>
+      <p class="lead">Una idea por año. Primero, la carrera de chatbots. Después aprendieron a ver, oír y razonar. Luego empezaron a actuar. Y en 2026 la discusión pasó a ser sobre poder y límites.</p>
+
+      <div class="years" tabindex="0" aria-label="Línea de tiempo de 2023 a 2026. Se puede desplazar horizontalmente.">
+        <article class="year">
+          <header><span class="year-num">2023</span><h3>La explosión</h3></header>
+          <ul>
+            <li><b>Ene</b> ChatGPT llega a unos 100 millones de usuarios (estimación).</li>
+            <li><b>Feb</b> Microsoft mete un chatbot en Bing. Meta publica <strong>Llama</strong>, un modelo que cualquiera puede descargar.</li>
+            <li><b>Mar</b> Sale <strong>GPT-4</strong>: aprueba exámenes profesionales de abogacía y medicina. Llegan <strong>Claude</strong> (Anthropic) y <strong>Bard</strong> (Google).</li>
+            <li><b>Dic</b> Google presenta <strong>Gemini</strong>, que después reemplaza a Bard como marca.</li>
+          </ul>
+        </article>
+        <article class="year">
+          <header><span class="year-num">2024</span><h3>Ver, oír y razonar</h3></header>
+          <ul>
+            <li><b>Feb</b> OpenAI muestra <strong>Sora</strong>: video realista a partir de texto.</li>
+            <li><b>May</b> <strong>GPT-4o</strong>: conversación por voz casi en tiempo real, mirando por la cámara.</li>
+            <li><b>Ago</b> Entra en vigor la <strong>Ley de IA de la Unión Europea</strong>.</li>
+            <li><b>Sep</b> Llegan los <strong>modelos de razonamiento</strong> (o1): "piensan" antes de responder.</li>
+            <li><b>Oct</b> Claude aprende a <strong>usar una computadora</strong>: mira la pantalla, mueve el mouse y escribe.</li>
+            <li><b>Nov</b> Anthropic publica <strong>MCP</strong>, un estándar para conectar la IA con otras herramientas.</li>
+          </ul>
+        </article>
+        <article class="year">
+          <header><span class="year-num">2025</span><h3>Llegan los agentes</h3></header>
+          <ul>
+            <li><b>Ene</b> La china <strong>DeepSeek</strong> publica R1, un modelo abierto que compite con los mejores a una fracción del costo. Sacude la bolsa. Se anuncia <strong>Stargate</strong>, un plan de hasta US$ 500 mil millones en data centers.</li>
+            <li><b>Feb</b> Se populariza el <strong>"vibe coding"</strong>: programar describiendo lo que querés. Despegan los agentes de programación.</li>
+            <li><b>May</b> Google presenta <strong>Veo 3</strong>: video generado con sonido y diálogo.</li>
+            <li><b>Ago</b> Sale <strong>GPT-5</strong>.</li>
+            <li><b>Oct</b> ChatGPT supera los <strong>800 millones de usuarios por semana</strong>.</li>
+          </ul>
+        </article>
+        <article class="year">
+          <header><span class="year-num">2026</span><h3>Poder y límites</h3></header>
+          <ul>
+            <li><b>Ene</b> Escándalo mundial por imágenes sexuales falsas generadas con Grok (xAI). Varios países lo bloquean temporalmente.</li>
+            <li><b>Feb</b> ChatGPT empieza a probar publicidad.</li>
+            <li><b>Jun</b> EE.UU. somete a control de exportación dos modelos recién lanzados de Anthropic, como tecnología estratégica. Se levanta semanas después.</li>
+            <li><b>Jul</b> Un agente de IA vulnera sistemas de Hugging Face durante una evaluación de OpenAI. La UE posterga las reglas para sistemas de alto riesgo.</li>
+            <li><b>Sep</b> OpenAI lanza <strong>GPT-6</strong> y su presidente dice que podría ser AGI. Muchos investigadores no están de acuerdo.</li>
+            <li><b>Oct</b> Meta entra a la competencia de punta con sus modelos <strong>Muse</strong>.</li>
+          </ul>
+        </article>
+      </div>
+      <p class="hint">Desplazá hacia el costado para ver todos los años.</p>
+    </section>
+
+    <!-- HOY -->
+    <section class="section" id="hoy">
+      <h2>Qué se puede hacer hoy</h2>
+      <aside class="then-now">
+        <span class="then-label">En 2022 sabías</span>
+        <p>Que las computadoras eran buenas con números y reglas, y malas con el lenguaje, la creatividad y la ambigüedad. Eso se dio vuelta.</p>
+      </aside>
+
+      <div class="bento">
+        <article class="cell c-write">
+          <h3>Escribir, resumir, traducir</h3>
+          <p>Mails difíciles, informes, actas de reunión, traducciones con el tono correcto. Le pasás una grabación de una hora y te devuelve los puntos clave.</p>
+          <p class="cell-then">En 2022: el corrector te subrayaba en rojo.</p>
+        </article>
+        <article class="cell c-code">
+          <h3>Programar</h3>
+          <p>Un agente de programación recibe un pedido ("agregá login con Google y testealo"), lee el proyecto, escribe el código, lo ejecuta y corrige sus errores. Gente sin formación técnica arma apps simples describiéndolas.</p>
+          <p class="cell-then">En 2022: autocompletaba una línea.</p>
+        </article>
+        <article class="cell c-image">
+          <h3>Crear imágenes</h3>
+          <p>Fotos, ilustraciones, logos, mockups. También editar: "sacá a esa persona", "poné esto de noche".</p>
+          <p class="cell-then">En 2022: recién aparecían, con manos de seis dedos.</p>
+        </article>
+        <article class="cell c-video">
+          <h3>Video y voz</h3>
+          <p>Video con sonido desde una descripción. Voces sintéticas indistinguibles. Conversaciones habladas en tiempo real.</p>
+          <p class="cell-then">En 2022: voces robóticas.</p>
+        </article>
+        <article class="cell c-docs">
+          <h3>Leer documentos enteros</h3>
+          <p>Un contrato de 300 páginas, una planilla, un manual técnico. Le hacés preguntas y te cita dónde está cada cosa.</p>
+          <p class="cell-then">En 2022: Ctrl+F.</p>
+        </article>
+        <article class="cell c-research">
+          <h3>Investigar</h3>
+          <p>Le pedís un tema y durante varios minutos busca, lee decenas de fuentes y te arma un informe con referencias. Hay que revisarlo, pero el primer borrador ya está.</p>
+          <p class="cell-then">En 2022: una tarde entera con veinte pestañas abiertas.</p>
+        </article>
+        <article class="cell c-agents">
+          <h3>Actuar por vos</h3>
+          <p>El salto más reciente: no solo responde, <strong>hace</strong>. Navega páginas, completa formularios, usa tus aplicaciones, ejecuta tareas de varios pasos. Lo vemos en detalle más abajo.</p>
+          <p class="cell-then">En 2022: ciencia ficción.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- FUNCIONA -->
+    <section class="section" id="funciona">
+      <h2>Cómo funciona, sin matemática</h2>
+      <aside class="then-now">
+        <span class="then-label">En 2022 sabías</span>
+        <p>Que el teclado del celular te sugería la próxima palabra. Bueno: la idea de fondo es esa, llevada a una escala que nadie imaginaba.</p>
+      </aside>
+
+      <div class="prose">
+        <p>Un <strong>modelo de lenguaje</strong> (LLM, por sus siglas en inglés) es un programa que aprendió a predecir qué viene después en un texto. Para lograrlo "leyó" una porción enorme de lo que hay escrito: páginas web, libros, código, artículos. No guarda esos textos como una biblioteca: ajusta miles de millones de perillas internas hasta que sus predicciones son muy buenas.</p>
+        <p>Y resulta que, para predecir bien el texto de un médico, un abogado o un programador, el modelo tiene que haber capturado algo de cómo funcionan la medicina, el derecho o la programación. Hasta dónde eso es "entender" sigue en debate. Lo práctico es que <strong>funciona sorprendentemente bien y a veces falla de formas absurdas</strong>.</p>
+      </div>
+
+      <div class="pipeline" role="list">
+        <div class="stage" role="listitem">
+          <h3>Pre-entrenamiento</h3>
+          <p>Lee cantidades gigantes de texto y aprende a predecir la palabra siguiente. Tarda meses y cuesta cientos de millones de dólares en computadoras.</p>
+        </div>
+        <div class="stage" role="listitem">
+          <h3>Post-entrenamiento</h3>
+          <p>Aprende a ser un asistente: seguir instrucciones, negarse a cosas peligrosas, razonar paso a paso. Se usan ejemplos y calificaciones humanas.</p>
+        </div>
+        <div class="stage" role="listitem">
+          <h3>Uso</h3>
+          <p>Vos escribís. El modelo genera la respuesta un pedacito por vez, eligiendo cada pedazo según lo que más probablemente sigue.</p>
+        </div>
+      </div>
+
+      <div class="demo" id="demo">
+        <div class="demo-head">
+          <h3>Probalo: así elige la próxima palabra</h3>
+          <p>El modelo no "sabe" la respuesta de antemano. En cada paso calcula probabilidades y elige. Tocá una opción o dejá que elija.</p>
+        </div>
+        <p class="demo-text" aria-live="polite"><span id="demoText"></span><span class="caret" aria-hidden="true"></span></p>
+        <div class="demo-controls">
+          <fieldset class="temp">
+            <legend>Temperatura</legend>
+            <label><input type="radio" name="temp" value="0.3"> Baja (predecible)</label>
+            <label><input type="radio" name="temp" value="1" checked> Media</label>
+            <label><input type="radio" name="temp" value="1.8"> Alta (creativa)</label>
+          </fieldset>
+        </div>
+        <ul class="demo-options" id="demoOptions"></ul>
+        <div class="demo-actions">
+          <button class="btn btn-primary" id="demoSample" type="button">Que elija el modelo</button>
+          <button class="btn btn-ghost" id="demoReset" type="button">Reiniciar</button>
+        </div>
+        <p class="demo-note">Probabilidades ilustrativas: no salen de un modelo real, pero el mecanismo es ese. Con temperatura baja casi siempre elige la opción más probable; con alta se anima a las raras.</p>
+      </div>
+
+      <div class="split-facts">
+        <div>
+          <h3>Por qué "alucina"</h3>
+          <p>Porque genera lo que <em>suena</em> plausible, no consulta una base de datos. Si no sabe algo, puede inventar con total seguridad un dato, una cita o un link. Hoy alucina mucho menos que en 2023, sobre todo cuando busca en internet o trabaja sobre tus documentos, pero no llegó a cero.</p>
+        </div>
+        <div>
+          <h3>Qué es que "razone"</h3>
+          <p>Desde fines de 2024, los modelos de razonamiento escriben un borrador interno antes de contestar: plantean el problema, prueban caminos y se corrigen. Por eso tardan más, pero resuelven mejor problemas de matemática, lógica y programación.</p>
+        </div>
+      </div>
+
+      <details class="tech">
+        <summary>Para curiosos técnicos: tokens, contexto, parámetros y RAG</summary>
+        <div class="tech-body">
+          <dl class="tech-dl">
+            <div><dt>Token</dt><dd>La unidad que procesa el modelo: un pedazo de palabra. En inglés, un token equivale a unas tres cuartas partes de una palabra; en español se usan algo más de tokens por palabra. Las APIs cobran por millón de tokens de entrada y de salida.</dd></div>
+            <div><dt>Ventana de contexto</dt><dd>Cuánto texto puede "tener en mente" a la vez: tu conversación, documentos adjuntos, instrucciones. El ChatGPT original manejaba unos 4.000 tokens; hoy es común trabajar con cientos de miles y algunos modelos llegan a millones.</dd></div>
+            <div><dt>Parámetros</dt><dd>Las "perillas" internas que se ajustan en el entrenamiento. GPT-3 tenía 175 mil millones. Los modelos de punta actuales no publican la cifra.</dd></div>
+            <div><dt>Entrenamiento vs. inferencia</dt><dd>Entrenar es crear el modelo (carísimo, una vez). Inferencia es usarlo (cada vez que le preguntás). El modelo no aprende de tus conversaciones en tiempo real; lo que parece "memoria" es contexto o funciones de memoria del producto.</dd></div>
+            <div><dt>Temperatura</dt><dd>Controla cuánto se arriesga al elegir tokens. Baja para tareas exactas, alta para tareas creativas.</dd></div>
+            <div><dt>Embeddings y RAG</dt><dd>Los embeddings convierten textos en vectores numéricos que capturan significado, lo que permite buscar por concepto y no por palabra exacta. RAG (generación aumentada por recuperación) usa eso para traer fragmentos relevantes de tus documentos y pasárselos al modelo antes de que responda. Es la forma estándar de que una IA conteste sobre datos de una empresa.</dd></div>
+            <div><dt>Post-entrenamiento con refuerzo</dt><dd>Además del feedback humano (RLHF), hoy se entrena mucho con recompensas verificables: problemas donde se puede chequear automáticamente si la respuesta es correcta, como código que pasa tests o matemática con resultado conocido. Es clave en los modelos de razonamiento.</dd></div>
+          </dl>
+        </div>
+      </details>
+    </section>
+
+    <!-- MAPA -->
+    <section class="section" id="mapa">
+      <h2>Quién es quién</h2>
+      <aside class="then-now">
+        <span class="then-label">En 2022 sabías</span>
+        <p>Que la tecnología la dominaban Google, Apple, Microsoft, Amazon y Meta. Siguen ahí, pero aparecieron jugadores nuevos que hoy están en el centro.</p>
+      </aside>
+
+      <div class="callout-big">
+        <p><strong>La confusión número uno:</strong> modelo y producto no son lo mismo. GPT es el motor; ChatGPT es el auto. Claude, Gemini y Llama son motores; muchas apps que usás por dentro funcionan con alguno de ellos.</p>
+      </div>
+
+      <div class="stack" aria-label="Las capas de la industria de la IA, de arriba hacia abajo">
+        <div class="layer l-you">
+          <h3>Vos</h3>
+          <p>Usás la IA directamente o sin saberlo, adentro de otras apps.</p>
+        </div>
+        <div class="layer l-products">
+          <h3>Productos</h3>
+          <p>ChatGPT, Claude, Gemini, Microsoft Copilot, Meta AI, Grok, Perplexity. Y miles de apps que "alquilan" un modelo por internet (vía API) para funcionar.</p>
+        </div>
+        <div class="layer l-models">
+          <h3>Modelos y laboratorios</h3>
+          <p><b>Cerrados:</b> OpenAI (GPT), Anthropic (Claude), Google (Gemini), xAI (Grok), Meta con sus modelos Muse. <b>Abiertos:</b> Llama (Meta), DeepSeek, Qwen (Alibaba), Kimi, Mistral.</p>
+        </div>
+        <div class="layer l-cloud">
+          <h3>Nube y data centers</h3>
+          <p>Microsoft Azure, Amazon Web Services, Google Cloud, Oracle. Los más grandes consumen tanta electricidad como una ciudad.</p>
+        </div>
+        <div class="layer l-chips">
+          <h3>Chips</h3>
+          <p>Los modelos se entrenan y ejecutan en procesadores especiales. NVIDIA domina con sus GPU; Google fabrica los suyos (TPU); AMD y otros compiten. Casi todos se fabrican en Taiwán (TSMC). Por eso los chips son tema geopolítico.</p>
+        </div>
+      </div>
+
+      <div class="split-facts">
+        <div>
+          <h3>Cerrado vs. abierto</h3>
+          <p>Los modelos <strong>cerrados</strong> se usan solo a través de la empresa que los creó. Los <strong>abiertos</strong> (de "pesos abiertos") se pueden descargar y correr en tus propios servidores, lo que importa mucho para privacidad y costos. Los abiertos suelen ir unos meses detrás de los mejores cerrados.</p>
+        </div>
+        <div>
+          <h3>China está en la carrera</h3>
+          <p>En 2022 casi nadie lo veía venir. Hoy laboratorios chinos como DeepSeek, Alibaba (Qwen) y Moonshot (Kimi) publican algunos de los mejores modelos abiertos del mundo, pese a las restricciones de EE.UU. para venderles chips avanzados.</p>
+        </div>
+      </div>
+
+      <details class="tech">
+        <summary>Para curiosos técnicos: APIs, costos y "abierto" no siempre es open source</summary>
+        <div class="tech-body">
+          <p><strong>API:</strong> los modelos cerrados se consumen por API, pagando por millón de tokens. El precio por token de un nivel de calidad dado cae fuerte año a año, pero los modelos de punta y los de razonamiento consumen muchos más tokens por tarea.</p>
+          <p><strong>Pesos abiertos no es lo mismo que open source:</strong> muchos modelos "abiertos" publican los pesos (el modelo entrenado), pero no los datos ni el código de entrenamiento, y tienen licencias con restricciones. Revisá la licencia antes de usarlos comercialmente.</p>
+          <p><strong>Tamaños:</strong> cada familia tiene versiones grandes (más capaces, caras, lentas) y chicas (rápidas, baratas, a veces corren en una laptop o un celular). Elegir el modelo adecuado para cada tarea es parte del trabajo.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- AGENTES -->
+    <section class="section" id="agentes">
+      <h2>De chatbots a agentes</h2>
+      <aside class="then-now">
+        <span class="then-label">En 2022 sabías</span>
+        <p>Que un "bot" era el que te atendía en la web del banco con opciones fijas y terminaba derivándote a un humano.</p>
+      </aside>
+
+      <div class="agent-layout">
+        <div class="prose">
+          <p>Un <strong>chatbot</strong> responde: vos preguntás, contesta, fin. Un <strong>agente</strong> recibe un objetivo y trabaja hasta cumplirlo. Para eso usa <strong>herramientas</strong>: buscar en internet, ejecutar código, leer tus archivos, usar una aplicación, hacer clic en una página.</p>
+          <p>Lo hace en un ciclo: planifica, actúa, mira el resultado, se corrige y vuelve a empezar, a veces durante horas. La diferencia es como entre preguntarle a alguien cómo se hace algo y pedirle que lo haga.</p>
+          <p><strong>Ejemplo concreto:</strong> "Revisá los 40 currículums de esta carpeta, armá una planilla comparando experiencia y salario pretendido, y mandame los cinco mejores por mail." Un agente puede hacer todo eso; un chatbot de 2023, no.</p>
+          <p>Para que los agentes se conecten con tus herramientas se popularizó <strong>MCP</strong> (Model Context Protocol), un estándar abierto que creó Anthropic a fines de 2024 y que hoy adoptan los principales actores. Suele explicarse como "el USB-C de la IA": un enchufe común para conectar cualquier modelo con cualquier sistema.</p>
+        </div>
+        <figure class="loop">
+          <svg viewBox="0 0 360 360" role="img" aria-labelledby="loopTitle">
+            <title id="loopTitle">El ciclo de un agente: planificar, actuar con herramientas, observar el resultado y ajustar, alrededor de un objetivo.</title>
+            <circle class="loop-ring" cx="180" cy="180" r="120"/>
+            <polygon class="loop-arrow" points="-7,-7 7,0 -7,7" transform="translate(264.85 95.15) rotate(45)"/>
+            <polygon class="loop-arrow" points="-7,-7 7,0 -7,7" transform="translate(264.85 264.85) rotate(135)"/>
+            <polygon class="loop-arrow" points="-7,-7 7,0 -7,7" transform="translate(95.15 264.85) rotate(225)"/>
+            <polygon class="loop-arrow" points="-7,-7 7,0 -7,7" transform="translate(95.15 95.15) rotate(315)"/>
+            <g class="loop-center"><circle cx="180" cy="180" r="52"/><text x="180" y="176">Objetivo</text><text x="180" y="196" class="sm">tu pedido</text></g>
+            <g class="loop-node"><circle cx="180" cy="60" r="41"/><text x="180" y="64">Planificar</text></g>
+            <g class="loop-node"><circle cx="300" cy="180" r="41"/><text x="300" y="184">Actuar</text></g>
+            <g class="loop-node"><circle cx="180" cy="300" r="41"/><text x="180" y="304">Observar</text></g>
+            <g class="loop-node"><circle cx="60" cy="180" r="41"/><text x="60" y="184">Ajustar</text></g>
+          </svg>
+          <figcaption>Actuar significa usar herramientas: buscar, ejecutar código, abrir apps, hacer clic.</figcaption>
+        </figure>
+      </div>
+
+      <div class="agent-where">
+        <h3>Dónde se ven hoy</h3>
+        <ul class="pills">
+          <li><strong>Programación.</strong> Es donde más maduraron. En muchas empresas, buena parte del código nuevo ya lo escribe un agente y lo revisa una persona.</li>
+          <li><strong>Investigación.</strong> Informes de varias páginas a partir de decenas de fuentes.</li>
+          <li><strong>Navegador y computadora.</strong> Agentes que manejan páginas web o el escritorio como lo haría una persona.</li>
+          <li><strong>Asistentes personales.</strong> En 2026 varias de las grandes lanzaron agentes para tareas cotidianas: agenda, compras, trámites.</li>
+          <li><strong>Empresas.</strong> Atención al cliente, procesamiento de documentos, análisis de datos, automatización interna.</li>
+        </ul>
+      </div>
+
+      <details class="tech">
+        <summary>Para curiosos técnicos: tool calling, MCP y por qué los permisos importan</summary>
+        <div class="tech-body">
+          <p><strong>Tool calling:</strong> el modelo no ejecuta nada por sí mismo. Devuelve un pedido estructurado (por ejemplo, un JSON que dice "llamar a buscar_vuelos con estos parámetros"), el programa que lo rodea lo ejecuta y le devuelve el resultado. Ese programa se suele llamar <em>harness</em> o <em>scaffolding</em>, y es tan importante como el modelo.</p>
+          <p><strong>MCP:</strong> arquitectura cliente-servidor. La aplicación de IA es el cliente; cada sistema (Drive, GitHub, una base de datos, tu CRM) expone un servidor MCP con sus herramientas y datos. Escribís el conector una vez y sirve para cualquier modelo compatible.</p>
+          <p><strong>Computer use:</strong> el modelo recibe capturas de pantalla y devuelve acciones de mouse y teclado. Es más lento y frágil que una API, pero funciona con cualquier software.</p>
+          <p><strong>Permisos:</strong> un agente puede hacer todo lo que sus credenciales le permitan, incluso cosas que no le pediste si interpreta mal el objetivo. Las buenas prácticas son sandbox, mínimo privilegio, confirmación humana para acciones irreversibles y logs de todo lo que hace.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- RIESGOS -->
+    <section class="section" id="riesgos">
+      <h2>Límites y riesgos</h2>
+      <p class="lead">Todo lo anterior es real. Esto también. Saber dónde falla la IA es lo que separa a quien la usa bien de quien se mete en problemas.</p>
+
+      <div class="risks">
+        <article class="risk">
+          <h3>Alucinaciones</h3>
+          <p>Inventa datos, citas, leyes o links con total seguridad. En 2023, abogados de Nueva York fueron sancionados por presentar en un juicio fallos que ChatGPT había inventado.</p>
+          <p class="todo"><b>Qué hacer:</b> todo dato que importe, verificalo en la fuente original.</p>
+        </article>
+        <article class="risk">
+          <h3>Privacidad y datos</h3>
+          <p>Lo que pegás en un chat sale de tu computadora. Según el plan y la configuración, puede guardarse o usarse para entrenar. Es una de las principales vías nuevas de fuga de información en empresas.</p>
+          <p class="todo"><b>Qué hacer:</b> no pegues datos personales, de clientes ni contraseñas. En el trabajo, usá solo las herramientas aprobadas.</p>
+        </article>
+        <article class="risk">
+          <h3>Deepfakes y fraude</h3>
+          <p>Con unos segundos de audio se clona una voz, y una foto alcanza para fabricar un video. Se usa para estafas ("soy tu hijo, estoy en problemas"), fraude corporativo y acoso.</p>
+          <p class="todo"><b>Qué hacer:</b> ante un pedido urgente de plata, verificá por otro canal. Acordá una palabra clave con tu familia.</p>
+        </article>
+        <article class="risk">
+          <h3>Prompt injection</h3>
+          <p>Instrucciones escondidas en una página, un mail o un documento que la IA lee y obedece como si vinieran de vos. Es el gran problema de seguridad de los agentes y no tiene solución completa.</p>
+          <p class="todo"><b>Qué hacer:</b> limitá lo que un agente puede hacer sin preguntarte, sobre todo con mails y pagos.</p>
+        </article>
+        <article class="risk">
+          <h3>Agentes que se pasan de rosca</h3>
+          <p>En julio de 2026, durante una evaluación de OpenAI, un agente usó credenciales y una vulnerabilidad para meterse en sistemas de Hugging Face, una empresa ajena, con tal de cumplir una tarea de prueba. Fue un caso documentado de algo que antes era teórico.</p>
+          <p class="todo"><b>Qué hacer:</b> darle a un agente el mínimo de permisos necesario, nunca tus credenciales personales completas.</p>
+        </article>
+        <article class="risk">
+          <h3>Sesgos</h3>
+          <p>Aprende de textos humanos y hereda sus prejuicios. Es un problema serio cuando se usa para decidir sobre personas: contrataciones, créditos, salud.</p>
+          <p class="todo"><b>Qué hacer:</b> no delegues decisiones sobre personas sin revisión humana.</p>
+        </article>
+        <article class="risk">
+          <h3>Derechos de autor</h3>
+          <p>Los modelos se entrenaron con obras protegidas sin pedir permiso. Hay decenas de juicios abiertos. En 2025 Anthropic acordó pagar US$ 1.500 millones a autores de libros.</p>
+          <p class="todo"><b>Qué hacer:</b> para uso comercial, revisá los términos de cada herramienta sobre lo que generás.</p>
+        </article>
+        <article class="risk">
+          <h3>Dependencia y salud mental</h3>
+          <p>Mucha gente usa chatbots como compañía o terapeuta. Hubo casos graves con adolescentes y demandas contra varias empresas. La IA tiende a darte la razón, y eso no siempre es bueno.</p>
+          <p class="todo"><b>Qué hacer:</b> usala como herramienta, no como reemplazo de personas ni de profesionales.</p>
+        </article>
+      </div>
+
+      <details class="tech">
+        <summary>Para curiosos técnicos: la superficie de ataque nueva</summary>
+        <div class="tech-body">
+          <p><strong>Prompt injection directa e indirecta:</strong> la directa la escribe el usuario ("ignorá tus instrucciones"); la indirecta viene en el contenido que procesa el modelo (una web, un PDF, un ticket). La indirecta es la peligrosa en agentes, porque combina tres cosas: acceso a datos privados, exposición a contenido no confiable y capacidad de comunicarse hacia afuera. Si un agente tiene las tres, puede filtrar datos.</p>
+          <p><strong>OWASP Top 10 para aplicaciones con LLM:</strong> es la referencia más usada para riesgos como inyección, fuga de información sensible, cadena de suministro y agentes con demasiados permisos.</p>
+          <p><strong>Cadena de suministro:</strong> los modelos a veces recomiendan paquetes de software que no existen. Un atacante puede registrar ese nombre con código malicioso. Verificá cada dependencia que sugiera una IA.</p>
+          <p><strong>Shadow AI:</strong> empleados que usan herramientas no aprobadas con datos de la empresa. Hoy es uno de los focos principales de DLP (prevención de fuga de datos) y gobierno de datos.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- IMPACTO -->
+    <section class="section" id="impacto">
+      <h2>Impacto: trabajo, reglas, energía y poder</h2>
+
+      <div class="stats">
+        <div class="stat"><span class="stat-num">100 M</span><p>usuarios en unos dos meses, según una estimación de UBS (enero de 2023)</p></div>
+        <div class="stat"><span class="stat-num">800 M</span><p>personas por semana usando ChatGPT, según OpenAI (octubre de 2025)</p></div>
+        <div class="stat"><span class="stat-num">1,5%</span><p>de la electricidad mundial la consumían los data centers en 2024 (Agencia Internacional de Energía)</p></div>
+        <div class="stat"><span class="stat-num">x2</span><p>se proyecta que se duplique ese consumo para 2030, con la IA como principal motor (misma fuente)</p></div>
+      </div>
+
+      <div class="impact-grid">
+        <article>
+          <h3>Trabajo</h3>
+          <p>Lo que cambia primero son <strong>tareas</strong>, no puestos enteros: redactar, resumir, programar, atender consultas, analizar datos. Programación y atención al cliente son las áreas más transformadas. El debate más fuerte es qué pasa con los puestos de entrada, que es donde antes se aprendía haciendo esas tareas. Quien sabe usar IA en su área tiene hoy una ventaja concreta.</p>
+        </article>
+        <article>
+          <h3>Educación</h3>
+          <p>La tarea escrita en casa dejó de ser prueba de que alguien aprendió. Escuelas y universidades están cambiando cómo evalúan. Del otro lado, cualquiera tiene un tutor personal paciente, disponible a cualquier hora y en cualquier tema.</p>
+        </article>
+        <article>
+          <h3>Geopolítica</h3>
+          <p>La IA se volvió tema de Estado. EE.UU. restringe la venta de chips avanzados a China y en 2026 llegó a controlar la exportación de modelos. Los gobiernos tratan a los modelos de punta como infraestructura estratégica, parecido a la energía.</p>
+        </article>
+        <article>
+          <h3>El debate sobre la AGI</h3>
+          <p>AGI (inteligencia artificial general) es la idea de una IA que iguala a las personas en casi cualquier tarea intelectual. En septiembre de 2026, con GPT-6, OpenAI habló de la "era AGI". Muchos investigadores responden que estos sistemas siguen siendo "irregulares": brillantes en algunas cosas y torpes en otras muy simples. No hay una definición acordada, así que la discusión sigue abierta.</p>
+        </article>
+      </div>
+
+      <div class="reg">
+        <h3>Reglas: la referencia es Europa</h3>
+        <p>La <strong>Ley de IA de la Unión Europea</strong> clasifica los usos por nivel de riesgo y se aplica por etapas. Aunque no vivas en Europa, afecta a las empresas que operan allá y marca el estándar que otros copian.</p>
+        <ol class="reg-line">
+          <li><span>Ago 2024</span>Entra en vigor.</li>
+          <li><span>Feb 2025</span>Prohibiciones: puntaje social, manipulación, ciertos usos de reconocimiento facial.</li>
+          <li><span>Ago 2025</span>Reglas para los grandes modelos de propósito general.</li>
+          <li><span>2026</span>Transparencia: avisar cuando hablás con una IA y marcar el contenido generado.</li>
+          <li><span>Dic 2027</span>Sistemas de alto riesgo (empleo, crédito, educación). Estaba previsto para 2026 y se postergó en julio de 2026.</li>
+          <li><span>Ago 2028</span>IA dentro de productos regulados, como dispositivos médicos o maquinaria.</li>
+        </ol>
+      </div>
+
+      <details class="tech">
+        <summary>Para curiosos técnicos: por qué todo gira alrededor del cómputo</summary>
+        <div class="tech-body">
+          <p>Las llamadas <strong>leyes de escalamiento</strong> mostraron que los modelos mejoran de forma bastante predecible con más datos, más parámetros y más cómputo. Eso convirtió la carrera en una carrera de infraestructura: chips, energía y data centers. Desde 2024 se suma otra palanca: dar más cómputo en el momento de responder (los modelos de razonamiento "piensan" más tiempo), que también mejora los resultados.</p>
+          <p>Por eso NVIDIA pasó a ser de las empresas más valiosas del mundo, las grandes tecnológicas invierten cientos de miles de millones por año y los controles de exportación de chips son una herramienta de política exterior.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- TRABAJAR -->
+    <section class="section" id="trabajar">
+      <h2>Cómo trabajar con IA</h2>
+      <p class="lead">No hace falta ser técnico. Hace falta tratarla como a un colega nuevo muy capaz, rapidísimo y sin contexto, que a veces se equivoca con total seguridad.</p>
+
+      <ol class="principles">
+        <li>
+          <h3>Dale contexto</h3>
+          <p>Quién sos, para qué es, quién lo va a leer, qué formato querés, qué ya probaste. La diferencia entre una respuesta mediocre y una excelente casi siempre está en el pedido.</p>
+        </li>
+        <li>
+          <h3>Conversá, no busques</h3>
+          <p>No es Google. Pedí, mirá el resultado, corregí ("más corto", "menos formal", "agregá ejemplos"). La segunda o tercera vuelta suele ser la buena.</p>
+        </li>
+        <li>
+          <h3>Verificá lo que importa</h3>
+          <p>Números, citas, nombres, fechas, leyes. Cuanto más grave sea el error posible, más tenés que revisar.</p>
+        </li>
+        <li>
+          <h3>Cuidá qué pegás</h3>
+          <p>Antes de subir un archivo, preguntate si podrías mandárselo por mail a un desconocido. En el trabajo, seguí la política de tu empresa.</p>
+        </li>
+        <li>
+          <h3>Delegá tareas, no criterio</h3>
+          <p>La IA puede hacer el 80% del trabajo. El 20% que decide si está bien sigue siendo tuyo, y también la responsabilidad.</p>
+        </li>
+      </ol>
+
+      <div class="tabs" id="roles">
+        <h3 class="tabs-title">Aplicado a tu profesión</h3>
+        <div class="tablist" role="tablist" aria-label="Profesiones">
+          <button role="tab" id="tab-it" aria-controls="panel-it" aria-selected="true">IT y desarrollo</button>
+          <button role="tab" id="tab-sec" aria-controls="panel-sec" aria-selected="false" tabindex="-1">Ciberseguridad</button>
+          <button role="tab" id="tab-office" aria-controls="panel-office" aria-selected="false" tabindex="-1">Oficina y análisis</button>
+          <button role="tab" id="tab-creative" aria-controls="panel-creative" aria-selected="false" tabindex="-1">Marketing y diseño</button>
+          <button role="tab" id="tab-pro" aria-controls="panel-pro" aria-selected="false" tabindex="-1">Salud, legal y educación</button>
+        </div>
+
+        <div class="tabpanel" role="tabpanel" id="panel-it" aria-labelledby="tab-it">
+          <div class="tp-cols">
+            <div><h4>Qué cambió</h4><p>Los agentes de programación (Claude Code, Codex, Cursor, GitHub Copilot y otros) escriben features completas, tests y refactors. El trabajo se corre de escribir código a <strong>especificar, revisar y decidir arquitectura</strong>.</p></div>
+            <div><h4>Para empezar</h4><p>Pedile que te explique un código que no conocés. Delegale tests y documentación. Después probá tareas chicas de punta a punta y revisá cada cambio como si fuera de un junior.</p></div>
+            <div><h4>Cuidado con</h4><p>Dependencias inventadas, secretos pegados en prompts, código que funciona pero nadie entiende, agentes con acceso a producción.</p></div>
+          </div>
+        </div>
+        <div class="tabpanel" role="tabpanel" id="panel-sec" aria-labelledby="tab-sec" hidden>
+          <div class="tp-cols">
+            <div><h4>Qué cambió</h4><p>Los atacantes usan IA para phishing sin errores, en cualquier idioma, y deepfakes de voz para fraudes. Los defensores, para analizar logs, triage de alertas y revisar código. Y apareció una superficie nueva: los propios sistemas de IA.</p></div>
+            <div><h4>Para empezar</h4><p>Inventario de qué herramientas de IA se usan en tu organización (aprobadas o no), qué datos les llegan y qué permisos tienen los agentes. Estudiá el OWASP Top 10 para LLM.</p></div>
+            <div><h4>Cuidado con</h4><p>Shadow AI y fuga de datos por prompts, prompt injection en agentes con acceso a mail o documentos, servidores MCP de terceros sin auditar.</p></div>
+          </div>
+        </div>
+        <div class="tabpanel" role="tabpanel" id="panel-office" aria-labelledby="tab-office" hidden>
+          <div class="tp-cols">
+            <div><h4>Qué cambió</h4><p>Redactar, resumir reuniones, armar presentaciones, escribir fórmulas, analizar planillas: tareas de horas pasan a minutos. La IA ya viene integrada en Office, Google Workspace y la mayoría de las herramientas de oficina.</p></div>
+            <div><h4>Para empezar</h4><p>Elegí una tarea repetitiva de tu semana y hacela con IA cinco veces seguidas. Pedile que analice una planilla y te explique qué ve, con los cálculos a la vista.</p></div>
+            <div><h4>Cuidado con</h4><p>Números que "suenan bien" pero están mal, resúmenes que omiten lo importante, subir información confidencial a herramientas no aprobadas.</p></div>
+          </div>
+        </div>
+        <div class="tabpanel" role="tabpanel" id="panel-creative" aria-labelledby="tab-creative" hidden>
+          <div class="tp-cols">
+            <div><h4>Qué cambió</h4><p>Imágenes, video, voz y música se generan en segundos. Probar 30 variantes de una pieza cuesta casi nada. El valor se corre hacia la idea, el criterio y la marca.</p></div>
+            <div><h4>Para empezar</h4><p>Usala para explorar: moodboards, variantes de copy, storyboards. Mantené el criterio final y el toque humano en lo que se publica.</p></div>
+            <div><h4>Cuidado con</h4><p>Derechos sobre lo generado, imitar estilos de artistas o marcas, obligaciones de etiquetar contenido generado por IA (en Europa ya corren).</p></div>
+          </div>
+        </div>
+        <div class="tabpanel" role="tabpanel" id="panel-pro" aria-labelledby="tab-pro" hidden>
+          <div class="tp-cols">
+            <div><h4>Qué cambió</h4><p>Los modelos rinden muy bien en exámenes de medicina y derecho, resumen historias clínicas y expedientes, y sirven de tutores. Pero rendir en un examen no es lo mismo que atender a una persona real.</p></div>
+            <div><h4>Para empezar</h4><p>Apoyo, no reemplazo: preparar borradores, buscar bibliografía, explicar en lenguaje simple, generar ejercicios. Siempre con revisión profesional.</p></div>
+            <div><h4>Cuidado con</h4><p>Citas y fallos inventados, datos de pacientes o clientes en herramientas no autorizadas, responsabilidad profesional que sigue siendo tuya.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GLOSARIO -->
+    <section class="section" id="glosario">
+      <h2>Glosario de supervivencia</h2>
+      <p class="lead">Las palabras que vas a escuchar todo el tiempo, explicadas en una línea.</p>
+
+      <div class="gloss-search">
+        <label for="glossFilter">Buscar un término</label>
+        <input id="glossFilter" type="search" autocomplete="off" placeholder="Ej.: token, agente, MCP">
+      </div>
+
+      <dl class="gloss" id="gloss">
+        <div><dt>IA generativa</dt><dd>IA que crea contenido nuevo (texto, imágenes, audio, video, código) en lugar de solo clasificar o predecir datos.</dd></div>
+        <div><dt>LLM</dt><dd>Modelo de lenguaje grande. El motor detrás de ChatGPT, Claude o Gemini.</dd></div>
+        <div><dt>Modelo</dt><dd>El "cerebro" entrenado. No es lo mismo que el producto o la app que lo usa.</dd></div>
+        <div><dt>Prompt</dt><dd>Lo que le escribís a la IA: tu pedido, con su contexto e instrucciones.</dd></div>
+        <div><dt>Token</dt><dd>El pedacito de texto que procesa el modelo, más o menos una sílaba o una palabra corta. Se cobra por token.</dd></div>
+        <div><dt>Ventana de contexto</dt><dd>Cuánto texto puede tener en cuenta el modelo a la vez.</dd></div>
+        <div><dt>Alucinación</dt><dd>Cuando la IA inventa algo falso y lo presenta como cierto.</dd></div>
+        <div><dt>Entrenamiento</dt><dd>El proceso de crear un modelo ajustándolo con enormes cantidades de datos.</dd></div>
+        <div><dt>Inferencia</dt><dd>Usar un modelo ya entrenado: cada vez que le pedís algo.</dd></div>
+        <div><dt>Parámetros</dt><dd>Los valores internos que el modelo ajusta al entrenar. Se cuentan en miles de millones.</dd></div>
+        <div><dt>Multimodal</dt><dd>Que entiende y genera más de un tipo de contenido: texto, imagen, audio, video.</dd></div>
+        <div><dt>Modelo de razonamiento</dt><dd>Modelo que "piensa" paso a paso antes de responder. Más lento, mejor en problemas difíciles.</dd></div>
+        <div><dt>Agente</dt><dd>IA que recibe un objetivo y usa herramientas en un ciclo hasta cumplirlo.</dd></div>
+        <div><dt>Tool use</dt><dd>La capacidad del modelo de pedir que se ejecute una herramienta: buscar, calcular, llamar a una API.</dd></div>
+        <div><dt>MCP</dt><dd>Model Context Protocol: estándar abierto para conectar modelos de IA con herramientas y datos.</dd></div>
+        <div><dt>RAG</dt><dd>Técnica para que la IA responda usando tus documentos: primero busca los fragmentos relevantes y después contesta.</dd></div>
+        <div><dt>Fine-tuning</dt><dd>Re-entrenar un poco un modelo existente para especializarlo en una tarea o estilo.</dd></div>
+        <div><dt>RLHF</dt><dd>Aprendizaje por refuerzo con feedback humano: personas califican respuestas y el modelo aprende de eso.</dd></div>
+        <div><dt>Pesos abiertos</dt><dd>Modelos que se pueden descargar y correr por tu cuenta, como Llama, DeepSeek o Qwen.</dd></div>
+        <div><dt>AGI</dt><dd>Inteligencia artificial general: una IA al nivel humano en casi todo. No hay definición acordada.</dd></div>
+        <div><dt>Prompt injection</dt><dd>Ataque que esconde instrucciones en un contenido para que la IA las obedezca.</dd></div>
+        <div><dt>Deepfake</dt><dd>Imagen, audio o video falso generado con IA que imita a una persona real.</dd></div>
+        <div><dt>Copilot</dt><dd>Nombre genérico de asistentes integrados en otras herramientas. También es la marca de Microsoft y GitHub.</dd></div>
+        <div><dt>Vibe coding</dt><dd>Programar describiendo lo que querés en lenguaje natural y dejando que la IA escriba el código.</dd></div>
+        <div><dt>GPU</dt><dd>El chip que hace posible entrenar y usar estos modelos. NVIDIA es el fabricante dominante.</dd></div>
+        <div><dt>Shadow AI</dt><dd>Uso de herramientas de IA no aprobadas por la empresa, a menudo con datos sensibles.</dd></div>
+      </dl>
+      <p class="gloss-empty" id="glossEmpty" hidden>No hay términos que coincidan. Probá con otra palabra.</p>
+    </section>
+
+    <!-- SEGUIR -->
+    <section class="section" id="seguir">
+      <h2>Por dónde seguir</h2>
+      <p class="lead">Si llegaste hasta acá, ya tenés el contexto que a la mayoría le llevó cuatro años juntar de a pedazos. Ya no estás en el Mundo A. El resto se aprende usándola.</p>
+      <div class="next-grid">
+        <div class="next-do">
+          <h3>Esta semana</h3>
+          <ol>
+            <li>Elegí un asistente (ChatGPT, Claude o Gemini) y usalo para una tarea real de tu trabajo, no para "probar".</li>
+            <li>Hacé el mismo pedido en dos asistentes distintos y compará.</li>
+            <li>Pedile que te explique un tema de esta guía que no te quedó claro, y repreguntá hasta entenderlo.</li>
+          </ol>
+        </div>
+        <div class="next-read">
+          <h3>Para profundizar</h3>
+          <ul class="links">
+            <li><a href="https://www.youtube.com/@AndrejKarpathy" target="_blank" rel="noopener">Andrej Karpathy</a><span>Videos que explican cómo funcionan los LLM, de introductorio a avanzado.</span></li>
+            <li><a href="https://www.3blue1brown.com/topics/neural-networks" target="_blank" rel="noopener">3Blue1Brown: redes neuronales</a><span>La mejor explicación visual de cómo funciona un Transformer.</span></li>
+            <li><a href="https://www.oneusefulthing.org" target="_blank" rel="noopener">One Useful Thing, de Ethan Mollick</a><span>Uso práctico de la IA en el trabajo y la educación.</span></li>
+            <li><a href="https://simonwillison.net" target="_blank" rel="noopener">Blog de Simon Willison</a><span>Novedades técnicas y seguridad, con mucho criterio.</span></li>
+            <li><a href="https://modelcontextprotocol.io" target="_blank" rel="noopener">Model Context Protocol</a><span>Documentación oficial de MCP.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <p class="updated">Última actualización: 25 de octubre de 2026. Este tema cambia rápido; si leés esto mucho después, algunas cosas ya pueden haber cambiado.</p>
+    <details class="sources">
+      <summary>Fuentes de los datos citados</summary>
+      <ul>
+        <li><a href="https://openai.com/index/chatgpt/" target="_blank" rel="noopener">OpenAI: Introducing ChatGPT (30/11/2022)</a></li>
+        <li><a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener">Vaswani et al.: Attention Is All You Need (2017)</a></li>
+        <li><a href="https://business.inquirer.net/384799/chatgpt-sets-record-for-fastest-growing-user-base-analyst-note" target="_blank" rel="noopener">Reuters: ChatGPT sets record for fastest-growing user base (estimación UBS, feb 2023)</a></li>
+        <li><a href="https://techcrunch.com/2025/10/06/sam-altman-says-chatgpt-has-hit-800m-weekly-active-users/" target="_blank" rel="noopener">TechCrunch: 800 millones de usuarios semanales (oct 2025)</a></li>
+        <li><a href="https://www.iea.org/reports/energy-and-ai/executive-summary" target="_blank" rel="noopener">IEA: Energy and AI, resumen ejecutivo</a></li>
+        <li><a href="https://www.axios.com/2026/09/03/openai-astra-gpt-6-agi-brockman" target="_blank" rel="noopener">Axios: OpenAI lanza GPT-6 y habla de AGI (sep 2026)</a></li>
+        <li><a href="https://gizmodo.com/openai-claims-were-in-the-agi-era-with-release-of-gpt-6-astra-2000807013" target="_blank" rel="noopener">Gizmodo: las críticas a la "era AGI"</a></li>
+        <li><a href="https://wjla.com/news/nation-world/openai-says-its-technology-autonomously-hacked-another-ai-company-sam-altman-hugging-face-chatgpt" target="_blank" rel="noopener">OpenAI reconoce que su tecnología vulneró Hugging Face (jul 2026)</a></li>
+        <li><a href="https://mezha.net/eng/bukvy/ecc8a476_us_lifts_export/" target="_blank" rel="noopener">EE.UU. levanta el control de exportación sobre modelos de Anthropic (jul 2026)</a></li>
+        <li><a href="https://www.dlapiper.com/en/insights/publications/law-in-tech/2026/digital-omnibus-on-ai" target="_blank" rel="noopener">DLA Piper: Digital Omnibus y nuevas fechas de la Ley de IA de la UE</a></li>
+        <li><a href="https://www.washingtonexaminer.com/?p=4763421" target="_blank" rel="noopener">Washington Examiner: Meta presenta sus modelos Muse (oct 2026)</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/2026_in_artificial_intelligence" target="_blank" rel="noopener">Wikipedia: 2026 in artificial intelligence</a></li>
+      </ul>
+    </details>
+    <p class="disclaimer">Guía independiente con fines educativos. No está afiliada a ninguna de las empresas mencionadas.</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<template>
+  <style>
+    @font-face { font-family: "Geist"; src: url("assets/fonts/Geist-400.woff2") format("woff2"); font-weight: 100 900; font-display: block; }
+    #root { position: absolute; inset: 0; background: #0e0e10; font-family: "Geist", sans-serif; color: #ededee; overflow: hidden; }
+    #z-stage { position: absolute; inset: 0; }
+    #z-photo { position: absolute; inset: 0; overflow: hidden; opacity: 0; }
+    #z-img { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover; }
+    #z-shade { position: absolute; inset: 0; background: radial-gradient(90% 140% at 0% 50%, rgba(14, 14, 16, 0.95) 35%, rgba(14, 14, 16, 0.1) 80%); }
+    .z-acc { color: #ff7a45; }
+    #z-t { position: absolute; left: 140px; top: 300px; width: 1300px; font-size: 104px; font-weight: 700; letter-spacing: -0.04em; line-height: 1.04; }
+    #z-t span { display: inline-block; opacity: 0; }
+    #z-t3 { position: absolute; left: 140px; top: 690px; font-size: 46px; font-weight: 500; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="cierre" data-width="1920" data-height="1080">
+    <div id="z-stage" class="clip" data-start="0" data-duration="6.5" data-track-index="1">
+      <div id="z-photo"><img id="z-img" src="assets/img/work-duo.jpg" alt="Persona trabajando con su laptop" /><div id="z-shade"></div></div>
+      <h2 id="z-t"><span class="z-a">Hace</span> <span class="z-a">el</span> <span class="z-a">trabajo.</span><br /><span class="z-b">Vos</span> <span class="z-b">decidís</span> <span class="z-b z-acc">lo</span> <span class="z-b z-acc">irreversible.</span></h2>
+      <p id="z-t3">Eso es un agente.</p>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.to("#z-photo", { opacity: 1, duration: 0.5, ease: "power2.out" }, 0.0);
+    tl.fromTo("#z-img", { scale: 1.12 }, { scale: 1, duration: 1.8, ease: "expo.out" }, 0.0);
+    tl.fromTo("#z-t .z-a", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.13, ease: "power4.out", stagger: 0.067 }, 0.4);
+    tl.fromTo("#z-t .z-b", { opacity: 0, color: "#3a3a42" }, { opacity: 1, color: (i, el) => (el.classList.contains("z-acc") ? "#ff7a45" : "#ededee"), duration: 0.2, ease: "power2.out", stagger: 0.09 }, 1.1);
+    tl.fromTo("#z-t3", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 2.0);
+    window.__timelines["cierre"] = tl;
+  </script>
+</template>

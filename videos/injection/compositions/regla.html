@@ -1,0 +1,23 @@
+<template>
+  <style>
+    @font-face { font-family: "Geist"; src: url("assets/fonts/Geist-400.woff2") format("woff2"); font-weight: 100 900; font-display: block; }
+    #root { position: absolute; inset: 0; background: #0e0e10; font-family: "Geist", sans-serif; color: #ededee; overflow: hidden; }
+    #r-stage { position: absolute; inset: 0; }
+    .r-acc { color: #ff7a45; }
+    #r-t { position: absolute; left: 140px; top: 290px; width: 1640px; font-size: 128px; font-weight: 700; letter-spacing: -0.045em; line-height: 1.02; }
+    #r-t span { display: inline-block; opacity: 0; }
+    #r-t2 { position: absolute; left: 140px; top: 660px; font-size: 50px; font-weight: 500; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="regla" data-width="1920" data-height="1080">
+    <div id="r-stage" class="clip" data-start="0" data-duration="5" data-track-index="1">
+      <h2 id="r-t"><span>Lo</span> <span>que</span> <span>lee,</span><br /><span>lo</span> <span>puede</span> <span class="r-acc">obedecer.</span></h2>
+      <p id="r-t2">Que nunca pague ni envíe datos sin tu OK.</p>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#r-t span", { opacity: 0, color: "#3a3a42" }, { opacity: 1, color: (i, el) => (el.classList.contains("r-acc") ? "#ff7a45" : "#ededee"), duration: 0.2, ease: "power2.out", stagger: 0.09 }, 0.15);
+    tl.fromTo("#r-t2", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 1.0);
+    window.__timelines["regla"] = tl;
+  </script>
+</template>
